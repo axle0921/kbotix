@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="kbotix:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="kbotix.war">
+      <element id="artifact" artifact-name="kbotix:war exploded" />
+    </root>
+  </artifact>
+</component>

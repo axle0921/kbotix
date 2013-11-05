@@ -1,0 +1,52 @@
+<html xmlns:concordion="http://www.concordion.org/2007/concordion">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../../../../../concordion.css" rel="stylesheet" type="text/css" />
+    <title>회원 닉네임 검증</title>
+</head>
+<body>
+<h1>회원 닉네임 검증</h1>
+
+닉네임은 특수문자와 기호를 제외한 영문, 한글, 숫자만 가능하며 2자 이상이다.
+
+<div class="example">
+    <h3>Example</h3>
+
+    <table concordion:execute="#result = isValidNickname(#nickname)">
+        <tr>
+            <th concordion:set="#nickname">Nickname</th>
+            <th concordion:assertEquals="#result">Expected Result</th>
+        </tr>
+        <tr>
+            <td>abcdefg1</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>abcdefg</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>abcdefg!#12</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>abcdEFG한글12$#%★</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>1abcdefg</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>abc d e fg1</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>홍길동</td>
+            <td>true</td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
