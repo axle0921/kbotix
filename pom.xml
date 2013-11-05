@@ -9,6 +9,7 @@
 
     <properties>
         <spring.version>3.2.0.RELEASE</spring.version>
+        <user.home>/Users/skplanet</user.home>
     </properties>
 
     <dependencies>
@@ -98,12 +99,22 @@
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
+                    <meminitial>128m</meminitial>
+                    <maxmem>512m</maxmem>
                     <source>1.6</source>
                     <target>1.6</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
 
-            <!--
+
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
@@ -112,7 +123,7 @@
                     </includes>
                 </configuration>
             </plugin>
-            -->
+
 
 
             <plugin>
@@ -216,7 +227,25 @@
             </plugin>
             -->
 
-
+            <!-- cobertura -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <version>2.5.2</version>
+                <configuration>
+                    <formats>
+                        <format>xml</format>
+                    </formats>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>cobertura</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
 
 
@@ -225,4 +254,67 @@
 
         </plugins>
     </build>
+
+    <reporting>
+        <outputDirectory>target/site</outputDirectory>
+        <plugins>
+            <!-- FindBugs -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>2.5.2</version>
+                <configuration>
+                    <findbugsXmlOutput>true</findbugsXmlOutput>
+                    <findbugsXmlWithMessages>true</findbugsXmlWithMessages>
+                    <xmlOutput>true</xmlOutput>
+                    <includeFilterFile>${user.home}/Dev/ci/ruleset/findbugs/FindBugsIncludeFilter.xml</includeFilterFile>
+                    <excludeFilterFile>${user.home}/Dev/ci/ruleset/findbugs/FindBugsExcludeFilter.xml</excludeFilterFile>
+                    <classFilesDirectory>target/classes/com</classFilesDirectory>
+                </configuration>
+            </plugin>
+            <!-- CheckStyle -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>2.10</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <configLocation>${user.home}/Dev/ci/ruleset/checkstyle/checkstyle.xml</configLocation>
+                    <!-- <includes>org/concordion/**/**/*.java</includes> <excludes>com/naver/news/m/generation/**/**.java</excludes> -->
+                </configuration>
+            </plugin>
+            <!-- PMD -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <version>2.3</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.0.1</version>
+                <configuration>
+                    <linkXRef>true</linkXRef>
+                    <sourceEncoding>utf-8</sourceEncoding>
+                    <minimumTokens>100</minimumTokens>
+                    <targetJdk>1.6</targetJdk>
+                    <rulesets>
+                        <ruleset>${user.home}/Dev/ci/ruleset/pmd/pmd-ruleset.xml</ruleset>
+                    </rulesets>
+                    <!-- <excludes> <exclude>com/naver/news/m/**/model/**.java</exclude>
+                        </excludes> -->
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <locale>ko_KR</locale>
+                    <encoding>UTF-8</encoding>
+                    <charset>UTF-8</charset>
+                    <docencoding>UTF-8</docencoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>
