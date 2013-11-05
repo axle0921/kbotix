@@ -287,6 +287,7 @@
                     <includeFilterFile>${user.home}/Dev/ci/ruleset/findbugs/FindBugsIncludeFilter.xml</includeFilterFile>
                     <excludeFilterFile>${user.home}/Dev/ci/ruleset/findbugs/FindBugsExcludeFilter.xml</excludeFilterFile>
                     <classFilesDirectory>target/classes/com</classFilesDirectory>
+                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
             <!-- CheckStyle -->
