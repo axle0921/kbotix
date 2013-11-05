@@ -6,9 +6,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SignupService {
-    @Autowired
-    public SignupService() {
-    }
 
     public boolean isValidId(String inputId) {
         boolean isNotAllowedEnglishNumberOnly = !SimpleStringUtils.isAllowedEnglishNumberOnly(inputId);
