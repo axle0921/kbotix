@@ -1,0 +1,35 @@
+<html xmlns:concordion="http://www.concordion.org/2007/concordion">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../../../../../concordion.css" rel="stylesheet" type="text/css" />
+    <title>로그인</title>
+</head>
+<body>
+<h1>로그인</h1>
+<div class="example">
+    <P>
+    KBOTix 회원은 로그인을 통해 구매 또는 판매를 할 수 있으며 다음의 경우 로그인이 제한된다.
+    </P>
+    <ul>
+        <li>로그인 5회 연속 실패하여 일시 차단된 경우</li>
+        <li>벌점 기준에 따라 현재 '불량회원'인 경우</li>
+        <li>신고 기준에 따라 현재 '불량회원'인 경우</li>
+    </ul>
+
+</div>
+
+<h2>Manual</h2>
+<ul>
+    <li>'ID 저장' 선택 후 정상적으로 로그인되면 30일간 해당 PC에 ID값이 저장되어 ID 입력란에 자동으로 입력된다</li>
+    <li>로그인 필수 URL 접근 시 인증 후 입력한 URL로 이동한다</li>
+    <li>로그인 5회 연속 실패 시 인증 일시 차단된다</li>
+    <li>벌점 기준에 따라 현재 '불량회원'인 경우 로그인이 제한된다</li>
+    <li>신고 기준에 따라 현재 '불량회원'인 경우 로그인이 제한된다</li>
+</ul>
+
+<h2>Out of Scope</h2>
+<ul>
+    <li>로그인 인증 보안</li>
+</ul>
+</body>
+</html>
