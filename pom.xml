@@ -114,32 +114,6 @@
                 </configuration>
             </plugin>
 
-            <!--
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <includes>
-                        <include>**/*Test.java</include>
-                    </includes>
-                </configuration>
-            </plugin>
-            -->
-
-            <!--
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <systemPropertyVariables>
-                        <concordion.output.dir>target/concordion</concordion.output.dir>
-                    </systemPropertyVariables>
-                    <includes>
-                        <include>**/Index.java</include>
-                    </includes>
-                </configuration>
-            </plugin>
-            -->
-
-
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
@@ -263,13 +237,15 @@
                     </execution>
                 </executions>
             </plugin>
-
-
-
-
-
-
         </plugins>
+        <testSourceDirectory>${basedir}/src/acceptance-test/java</testSourceDirectory>
+        <testSourceDirectory>${basedir}/src/integration-test/java</testSourceDirectory>
+        <testResources>
+            <testResource>
+                <directory>${basedir}/src/acceptance-test/resources</directory>
+                <directory>${basedir}/src/integration-test/resources</directory>
+            </testResource>
+        </testResources>
     </build>
 
     <reporting>
