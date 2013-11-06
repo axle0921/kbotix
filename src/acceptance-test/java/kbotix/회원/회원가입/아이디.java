@@ -12,4 +12,3 @@ public class 아이디 {
         return signupService.isValidId(id);
     }
 }
-
