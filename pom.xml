@@ -95,6 +95,16 @@
 
     <build>
         <finalName>kbotix</finalName>
+
+        <testResources>
+            <testResource>
+                <directory>${basedir}/src/acceptance-test/resources</directory>
+            </testResource>
+            <testResource>
+                <directory>${basedir}/src/integration-test/resources</directory>
+            </testResource>
+        </testResources>
+
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -224,6 +234,7 @@
                 <artifactId>cobertura-maven-plugin</artifactId>
                 <version>2.5.2</version>
                 <configuration>
+                    <encoding>UTF-8</encoding>
                     <formats>
                         <format>xml</format>
                     </formats>
@@ -238,14 +249,6 @@
                 </executions>
             </plugin>
         </plugins>
-        <testSourceDirectory>${basedir}/src/acceptance-test/java</testSourceDirectory>
-        <testSourceDirectory>${basedir}/src/integration-test/java</testSourceDirectory>
-        <testResources>
-            <testResource>
-                <directory>${basedir}/src/acceptance-test/resources</directory>
-                <directory>${basedir}/src/integration-test/resources</directory>
-            </testResource>
-        </testResources>
     </build>
 
     <reporting>
