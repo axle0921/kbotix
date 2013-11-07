@@ -277,7 +277,7 @@
                 <configuration>
                     <encoding>UTF-8</encoding>
                     <configLocation>${user.home}/Dev/ci/ruleset/checkstyle/checkstyle.xml</configLocation>
-                    <!-- <includes>org/concordion/**/**/*.java</includes> <excludes>com/naver/news/m/generation/**/**.java</excludes> -->
+                    <includes>com/skplanet/kbotix/**/*.java</includes>
                 </configuration>
             </plugin>
             <!-- PMD -->
@@ -298,8 +298,6 @@
                     <rulesets>
                         <ruleset>${user.home}/Dev/ci/ruleset/pmd/pmd-ruleset.xml</ruleset>
                     </rulesets>
-                    <!-- <excludes> <exclude>com/naver/news/m/**/model/**.java</exclude>
-                        </excludes> -->
                 </configuration>
             </plugin>
             <plugin>
